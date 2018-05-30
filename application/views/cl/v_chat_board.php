@@ -48,9 +48,9 @@
                     <div class="comment-form">
                       <form class="form-inline">
                         <div class="form-group">
-                          <input type="text" class="form-control" id="exampleInputName2" placeholder="Enter Comment">
+                          <input type="text" class="form-control" id="mychat" name="chatboard" placeholder="Write chat here...">
                         </div>
-                        <button type="submit" class="btn btn-default">Add</button>
+                        <button type="submit" class="btn btn-default" onclick="pressMe();">Add</button>
                       </form>
                     </div><!-- comment form end -->
 
@@ -129,7 +129,7 @@
                   <p>This is a Dobble social network sample group</p>
                 </div>
                 <div class="clearfix"></div>
-                <a class="btn btn-primary" href="#">View All Groups</a>
+                <a class="btn btn-primary" href="#" >View All Groups</a>
               </div>
             </div>
           </div>
@@ -137,3 +137,22 @@
       </div>
 
     </section>
+
+    <script type="text/javascript">
+
+
+        function pressMe(){
+
+          var varjaxText = $("#mychat").val();
+
+          var b_url = '<?= site_url('feed/post_chat_api/')?>';
+        //  alert(b_url);
+          $.post(b_url, {chatboard: varjaxText}, function(result){
+
+                console.log(result.message);
+          });
+
+        }
+
+
+    </script>

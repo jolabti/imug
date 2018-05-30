@@ -24,6 +24,10 @@ class Imugmodel extends CI_Model {
 
     public function post_chat($pcuserid,$pctextchat){
 
+
+
+
+
             $data = array(
               'pc_id' =>"" ,
               'pc_user_id' =>$pcuserid ,
@@ -32,9 +36,15 @@ class Imugmodel extends CI_Model {
 
             );
 
-            $this->db->insert("imug_personal_chat", $data);
+	            $this->db->insert("imug_personal_chat", $data);
 
     }
+
+
+		public function post_temp_chat($data){
+
+				  $this->db->insert("imug_personal_chat", $data);
+		}
 
     public function get_chat_communication(){
             $this->db->select('*');
