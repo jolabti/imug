@@ -32,17 +32,19 @@
               <div class="panel-body">
                 <div class="row">
                   <div class="col-sm-2">
-                    <a class="post-avatar thumbnail" href="profile.html"><img src="img/user.png"><div class="text-center">DevUser1</div></a>
-                    <div class="likes text-center">7 Likes</div>
+                    <!-- <a class="post-avatar thumbnail" href="profile.html"><img src="img/user.png"><div class="text-center">DevUser1</div></a> -->
+                    <div class="likes text-center">13;23</div>
                   </div><!-- col-sm-2 end -->
                   <div class="col-sm-10">
                     <div class="bubble">
                       <div class="pointer">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt eget ante eget feugiat. Praesent adipiscing tortor eu tincidunt tempus. Sed convallis est in ante sodales, sit amet consectetur leo commodo. </p>
+                        <p>Budi </p>
                       </div>
-                      <div class="pointer-border"></div>
+                      <div class="pointer-border">Hi , kepada teman - teman 51 PLSI</div>
                     </div><!-- bubble end -->
-                    <p class="post-actions"><a href="#">Comment</a> - <a href="#">Like</a> - <a href="#">Follow</a> - <a href="#">Share</a> </p>
+                    <!-- <p class="post-actions"><a href="#">Blok</a> - <a href="#">Report</a> - <a href="#">Like</a> -->
+                    <br>
+                    <hr>
                     <div class="comment-form">
                       <form class="form-inline">
                         <div class="form-group">
@@ -51,9 +53,10 @@
                         <button type="submit" class="btn btn-default">Add</button>
                       </form>
                     </div><!-- comment form end -->
+
                     <div class="clearfix"></div>
 
-                    <div class="comments">
+                    <!-- <div class="comments">
                       <div class="comment">
                         <a class="comment-avatar pull-left" href="#"><img src="img/user.png"></a>
                         <div class="comment-text">
@@ -69,7 +72,7 @@
                         </div>
                       </div>
                       <div class="clearfix"></div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
