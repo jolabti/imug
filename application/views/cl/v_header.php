@@ -10,6 +10,7 @@
     <!-- Custom styles for this template -->
     <link href="<?= base_url();?>assets/client/css/font-awesome.css" rel="stylesheet">
     <link href="<?= base_url();?>assets/client/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
   </head>
 
   <body>

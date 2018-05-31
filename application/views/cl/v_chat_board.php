@@ -46,12 +46,12 @@
                     <br>
                     <hr>
                     <div class="comment-form">
-                      <form class="form-inline">
+                      <div class="form-inline">
                         <div class="form-group">
                           <input type="text" class="form-control" id="mychat" name="chatboard" placeholder="Write chat here...">
                         </div>
-                        <button type="submit" class="btn btn-default" onclick="pressMe();">Add</button>
-                      </form>
+                        <button type="button" class="btn btn-default" id="sbt">Add</button>
+                      </div>
                     </div><!-- comment form end -->
 
                     <div class="clearfix"></div>
@@ -137,22 +137,3 @@
       </div>
 
     </section>
-
-    <script type="text/javascript">
-
-
-        function pressMe(){
-
-          var varjaxText = $("#mychat").val();
-
-          var b_url = '<?= site_url('feed/post_chat_api/')?>';
-        //  alert(b_url);
-          $.post(b_url, {chatboard: varjaxText}, function(result){
-
-                console.log(result.message);
-          });
-
-        }
-
-
-    </script>

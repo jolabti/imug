@@ -34,10 +34,10 @@ class Feed extends CI_Controller {
 
 		public function post_chat_api(){
 
-					$pc_text_chat = $this->input->post("chatboard");
+
 					$userID = $this->session->userdata("sess_id");
 
-					if($textChat==""){
+					if($this->input->post('chatboard')==""){
 
 						$result["message"]="Chat kosong";
 
@@ -51,32 +51,38 @@ class Feed extends CI_Controller {
 						$data = array(
 							"pc_id"=>"",
 							"pc_user_id"=>$userID,
-							"pc_text_chat"=>$pc_text_chat,
+							"pc_text_chat"=>$this->input->post('chatboard'),
 							"pc_status"=>1
 						);
 
 						$this->Imugmodel->post_temp_chat($data);
 					  $result["message"]="Chat Terkirim";
-
-
-
 					}
-
-
-
 					echo json_encode($result);
 		}
 		public function post_chat_json(){
 
 					 if($this->session->userdata("sess_email")!=""){
-
 						   $result["message"] = "Anda berhasil login";
-
 					 }
-
-
-
+					 else{
+						    $result["message"] = "Silahkan login terlebih dahulu !";
+								redirect("/");
+					 }
 					 echo json_encode($result);
+		}
+
+		public function gen_qrcode($text){
+
+						$this->load->library('ciqrcode');
+
+						$params['data'] = $text;
+						$params['level'] = 'H';
+						$params['size'] = 10;
+						$params['savename'] = FCPATH.$text.'.png';
+						$this->ciqrcode->generate($params);
+
+						echo '<img src="'.base_url().$text.'.png" />';
 		}
 
 
@@ -90,9 +96,7 @@ class Feed extends CI_Controller {
 			redirect("feed/dash");
 		}
 		else{
-
 			$this->load->view('adm/v_adm_login');
-
 		}
 
 
