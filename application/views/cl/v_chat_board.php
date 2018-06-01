@@ -38,7 +38,7 @@
                   <div class="col-sm-10">
                     <div class="bubble">
                       <div class="pointer">
-                        <p>Budi </p>
+                        <p id="namechatter">Budi </p>
                       </div>
                       <div class="pointer-border">Hi , kepada teman - teman 51 PLSI</div>
                     </div><!-- bubble end -->

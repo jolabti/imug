@@ -85,6 +85,15 @@ class Feed extends CI_Controller {
 						echo '<img src="'.base_url().$text.'.png" />';
 		}
 
+		public function get_show_all_chat(){
+
+						$q= $this->Imugmodel->get_chat_communication();
+
+						echo json_encode($q);
+
+
+		}
+
 
 	 //================
 
