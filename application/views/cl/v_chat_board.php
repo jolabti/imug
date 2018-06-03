@@ -52,8 +52,10 @@
                         <div class="form-group">
                           <input type="text" class="form-control" id="mychat" name="chatboard" placeholder="Write chat here...">
                         </div>
-                        <button type="button" class="btn btn-default" id="sbt">Add</button>
+
                       </div>
+                      <button type="button" class="btn btn-success" id="sbt">Chat</button>
+
                     </div><!-- comment form end -->
 
                     <div class="clearfix"></div>
@@ -84,7 +86,7 @@
           </div><!-- col-md-8 end -->
 
           <div class="col-md-4">
-            <div class="panel panel-default friends">
+            <!-- <div class="panel panel-default friends">
               <div class="panel-heading">
                 <h3 class="panel-title">Online Friend</h3>
               </div>
@@ -105,8 +107,8 @@
                 </ul>
                 <div class="clearfix"></div>
                 <!-- <a class="btn btn-primary" href="#">View All Friends</a> -->
-              </div>
-            </div>
+              <!-- </div> -->
+            <!-- </div>   -->
 
             <div class="panel panel-default groups">
               <div class="panel-heading">
@@ -114,6 +116,12 @@
               </div>
               <div class="panel-body">
                 <div class="group-item">
+                  <!-- <img src="img/group.png"> -->
+                  <h4><a href="#">Sample Group One</a></h4>
+                  <p>This is a Dobble social network sample group</p>
+                </div>
+                <div class="clearfix"></div>
+                <!-- <div class="group-item">
                   <img src="img/group.png">
                   <h4><a href="#">Sample Group One</a></h4>
                   <p>This is a Dobble social network sample group</p>
@@ -125,13 +133,7 @@
                   <p>This is a Dobble social network sample group</p>
                 </div>
                 <div class="clearfix"></div>
-                <div class="group-item">
-                  <img src="img/group.png">
-                  <h4><a href="#">Sample Group One</a></h4>
-                  <p>This is a Dobble social network sample group</p>
-                </div>
-                <div class="clearfix"></div>
-                <a class="btn btn-primary" href="#" >View All Groups</a>
+                <a class="btn btn-primary" href="#" >View All Groups</a> -->
               </div>
             </div>
           </div>

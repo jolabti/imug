@@ -49,7 +49,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="members.html">Members</a></li>
-            <li><a href="groups.html">Groups</a></li>
+            <!-- <li><a href="groups.html">Groups</a></li> -->
             <li><a href="<?= site_url("feed/logout");?>">Logout</a></li>
             <!-- <li><a href="photos.html">Photos</a></li>
             <li><a href="profile.html">Profile</a></li> -->
