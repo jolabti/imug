@@ -19,6 +19,7 @@
       // $(document).ready(function() {
 
       getRealtimechat();
+      startChat();
 
       function startChat(){
 
