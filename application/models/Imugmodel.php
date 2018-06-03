@@ -50,7 +50,8 @@ class Imugmodel extends CI_Model {
             $this->db->select('*');
             $this->db->from('imug_personal_chat');
             $this->db->join('imug_users', 'imug_personal_chat.pc_user_id = imug_users.users_id');
-
+						$this->db->order_by("imug_personal_chat.pc_time", "desc");
+						$this->db->limit(5);
             $q = $this->db->get();
             return $q->result();
     }

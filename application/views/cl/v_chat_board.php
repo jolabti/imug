@@ -35,12 +35,14 @@
                     <!-- <a class="post-avatar thumbnail" href="profile.html"><img src="img/user.png"><div class="text-center">DevUser1</div></a> -->
                     <div class="likes text-center">13;23</div>
                   </div><!-- col-sm-2 end -->
-                  <div class="col-sm-10">
-                    <div class="bubble">
-                      <div class="pointer">
+                  <div class="col-sm-10" >
+                    <div class="bubble" id="idbuble" >
+
+                      <!-- <div class="pointer">
                         <p id="namechatter">Budi </p>
                       </div>
-                      <div class="pointer-border">Hi , kepada teman - teman 51 PLSI</div>
+                      <div class="pointer-border">Hi , kepada teman - teman 51 PLSI</div> -->
+
                     </div><!-- bubble end -->
                     <!-- <p class="post-actions"><a href="#">Blok</a> - <a href="#">Report</a> - <a href="#">Like</a> -->
                     <br>

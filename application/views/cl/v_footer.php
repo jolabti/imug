@@ -14,11 +14,20 @@
 <script src="<?= base_url();?>assets/client/js/bootstrap.js"></script>
 
 <script type="text/javascript">
-
+      var html="";
       // Ajax post
       // $(document).ready(function() {
 
       getRealtimechat();
+
+      function startChat(){
+
+          setInterval( function() { getRealtimechat(); }, 2000);
+
+
+
+      }
+
 
       function clearInput(){
 
@@ -26,6 +35,7 @@
       }
 
       function getRealtimechat(){
+      html="";
       jQuery.ajax({
       type: "POST",
       url: "<?php echo base_url(); ?>" + "index.php/feed/get_show_all_chat/",
@@ -33,17 +43,44 @@
       // data: {chatboard: userchat},
       success: function(res) {
 
+
+
             console.log("relen"+ res.length);
             console.log(res.pc_id);
-
+            html='';
             for(i=0;i<res.length;i++){
                   console.log(res[i].pc_text_chat);
 
-                  $("#namechatter").html(res[i].pc_text_chat);
+                //  $("#namechatter").html(res[i].pc_text_chat);
+                  $("#idbuble").html("");
+
+                  html+='<div class="pointer">'
+
+                      + '<p  class"badge">'
+
+                      + res[i].users_email
+
+                      + '</p>'
+
+                      + '</div>'
+
+                      + '<div class="btn btn-primary">'
+
+                      + res[i].pc_text_chat
+
+                      + '</div>';
+
+
+                  // var node = document.createElement("LI");
+                  // var textnode = document.createTextNode(res[i].pc_text_chat);
+                  // node.appendChild(textnode);
+                  // document.getElementById("myList").appendChild(node);
+
+
             }
 
 
-            //$("#namechatter").html(res.pc_user_id);
+            $("#idbuble").append(html);
       }
      });
 
@@ -67,6 +104,7 @@
               {
                 clearInput();
                 getRealtimechat();
+                //startChat();
                 toastr.success('Notification!', res.message);
 
 
