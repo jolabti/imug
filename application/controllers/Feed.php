@@ -16,15 +16,28 @@ class Feed extends CI_Controller {
 					if($countUser>0){
 						  $this->session->set_userdata("sess_email", $takeUser->users_email);
 						  $this->session->set_userdata("sess_id", $takeUser->users_id);
+						  $this->session->set_userdata("sess_role_id", $takeUser->users_role_id);
 						  $this->session->set_userdata("sess_logged", "logged");
 
-							$this->dash();
-					}
-					else{
-							$this->index();
+
+								if($this->session->userdata("sess_role_id")==1){
+
+											$this->dashmin();
+
+								}
+								else if ($this->session->userdata("sess_role_id")==2){
+
+											$this->dash();
+								}
 					}
 
 
+
+		}
+
+		public function testsesrole(){
+
+				echo $this->session->userdata("sess_role_id");
 		}
 
 		public function logout(){
@@ -121,10 +134,44 @@ class Feed extends CI_Controller {
 			$this->load->view('cl/v_chat_board', $param);
 			$this->load->view('cl/v_footer');
 		}
+	}
+
+	public function dashmin(){
+			if($this->session->userdata("sess_email")==""){
+				redirect('/');
+			}
+			else if(($this->session->userdata("sess_email")!="") && $this->session->userdata("sess_role_id")==1){
+
+						$this->load->view('adm/v_adm_dash');
+
+
+			}
+			else {
+
+				 	$q["message"] = "You are not authenticate";
+					echo json_encode($q);
+			}
+
+			// $this->load->view('adm/v_adm_dash');
+
 
 
 	}
 
+	//=====================
+
+	public function api_chat_total(){
+
+		 $q["total"] = $this->Imugmodel->get_chat_total();
+
+		 echo json_encode($q);
+	}
+	public function api_user_total(){
+
+		 $q["total"] = $this->Imugmodel->get_user_total();
+
+		 echo json_encode($q);
+	}
 	//=====================
 
 }

@@ -21,6 +21,17 @@ class Imugmodel extends CI_Model {
 
 
     }
+		public function get_user_total(){
+
+					$this->db->where("users_role_id",2);
+		      return $this->db->get("imug_users")->num_rows();
+		}
+		public function get_chat_total(){
+
+
+		      return $this->db->get("imug_personal_chat")->num_rows();
+		}
+
 
     public function post_chat($pcuserid,$pctextchat){
 
