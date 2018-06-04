@@ -444,12 +444,13 @@
                                         <tr>
                                           <th>ID</th>
                                           <th>Email</th>
-                                          <th>Last time chat</th>
+                                           <th>Status Member</th>
                                           <th>Action</th>
                                         </tr>
                                       </thead>
-                                      <tbody>
-                                        <tr>
+                                      <tbody id="idtableusers">
+
+                                        <!-- <tr>
                                           <td>John</td>
                                           <td>Doe</td>
                                           <td>john@example.com</td>
@@ -457,7 +458,7 @@
                                             <button class="btn btn-warning">Suspend</button>
                                             <button class="btn btn-danger">Delete</button>
                                           </td>
-                                        </tr>
+                                        </tr> -->
 
                                       </tbody>
                                     </table>
@@ -694,6 +695,8 @@
     <script type="text/javascript">
 
 
+    getAllUser();
+    startRefreshMember();
 
     getRealtimeusers();
     startRefreshUserTotal();
@@ -701,6 +704,9 @@
     getRealtimechats();
     startRefreshChatTotal();
 
+    function startRefreshMember(){
+        setInterval( function() { getAllUser(); }, 1000);
+    }
     function startRefreshChatTotal(){
         setInterval( function() { getRealtimechats(); }, 1000);
     }
@@ -754,6 +760,66 @@
          }
 
         }
+
+       });
+
+     }
+
+
+
+    function getAllUser(){
+    var htmel="";
+    jQuery.ajax({
+    type: "POST",
+    url: "<?php echo base_url(); ?>" + "index.php/feed/api_user_datas",
+    dataType: 'json',
+    // data: {chatboard: userchat},
+    success: function(res) {
+          console.log("alluse_"+ res.data.length);
+          var stat="";
+          for (i=0;i<res.data.length;i++){
+
+                  console.log("aws_", res.data[i].users_email);
+                  $("#idtableusers").html("");
+                 if(res.data[i].users_status===1){
+                    stat="aktif";
+                 }
+                 else{
+                   stat="tidaka"
+                 }
+
+
+                 htmel+='<tr>'
+                 +'<td>'
+                 +  res.data[i].users_id
+
+                 +'</td>'
+
+                 +'<td>'
+                 +  res.data[i].users_email
+                 +'</td>'
+
+                 +'<td>'
+                 +  res.data[i].users_status
+                 +'</td>'
+                 +'<td>'
+                 +
+                  '<button class="btn btn-warning">Suspend</button>'
+
+                 + '<button class="btn btn-danger">Delete</button>'
+
+
+                 +'</td>'
+
+                 +'</tr>'
+                 ;
+
+
+            }
+
+            $("#idtableusers").append(htmel);
+
+          }
 
        });
 

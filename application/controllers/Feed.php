@@ -7,9 +7,6 @@ class Feed extends CI_Controller {
 
 	 	public function auth_login(){
 
-					// $countUser["auth"] = $this->Imugmodel->cek_user($this->input->post("user"), $this->input->post("password"));
-					// $countUser["personal_data"] = $this->Imugmodel->get_user($this->input->post("user"), $this->input->post("password"));
-
 					$countUser  = $this->Imugmodel->cek_user($this->input->post("user"), $this->input->post("password"));
 					$takeUser  = $this->Imugmodel->get_user($this->input->post("user"), $this->input->post("password"));
 
@@ -18,7 +15,6 @@ class Feed extends CI_Controller {
 						  $this->session->set_userdata("sess_id", $takeUser->users_id);
 						  $this->session->set_userdata("sess_role_id", $takeUser->users_role_id);
 						  $this->session->set_userdata("sess_logged", "logged");
-
 
 								if($this->session->userdata("sess_role_id")==1){
 
@@ -29,9 +25,30 @@ class Feed extends CI_Controller {
 
 											$this->dash();
 								}
+
+					}
+					else {
+
+							 $datanewUser = array(
+								 "users_id" => "",
+								 "users_email" => trim($this->input->post("user")),
+								 "users_password" => trim($this->input->post("password")),
+								 "users_role_id" => 2,
+								 "users_join_date" => date('Y-m-d'),
+								 "users_status" => 1
+							 );
+
+							 $this->newUser($datanewUser);
 					}
 
 
+
+		}
+
+		public function newUser($data=array()){
+
+					 $q = $this->Imugmodel->post_new_user($data);
+					 $this->dash();
 
 		}
 
@@ -171,6 +188,15 @@ class Feed extends CI_Controller {
 		 $q["total"] = $this->Imugmodel->get_user_total();
 
 		 echo json_encode($q);
+	}
+
+	public function api_user_datas(){
+
+		 $q["data"] = $this->Imugmodel->get_user_data();
+		 $q["message"] = "ok";
+
+		 echo json_encode($q);
+
 	}
 	//=====================
 

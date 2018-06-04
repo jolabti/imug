@@ -21,11 +21,28 @@ class Imugmodel extends CI_Model {
 
 
     }
+
+		public function post_new_user($data=array()){
+
+					$this->db->insert('imug_users',$data);
+
+
+		}
+
 		public function get_user_total(){
 
 					$this->db->where("users_role_id",2);
 		      return $this->db->get("imug_users")->num_rows();
 		}
+
+		public function get_user_data(){
+					$this->db->where("users_role_id",2);
+					$q = $this->db->get('imug_users');
+
+					return $q->result();
+
+		}
+
 		public function get_chat_total(){
 
 
@@ -66,6 +83,8 @@ class Imugmodel extends CI_Model {
             $q = $this->db->get();
             return $q->result();
     }
+
+
 
 
 

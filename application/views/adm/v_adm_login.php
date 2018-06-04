@@ -20,7 +20,9 @@
                     <input name="user" type="text" placeholder="username">
                     <input type="password" placeholder="password" name="password">
                     <button class="btn btn-info btn-block login" type="submit">Login</button>
+
                 </form>
+								<!-- <a href="#" id="#nyregistered">Not yet registered ? </a> -->
             </div>
         </div>
 
