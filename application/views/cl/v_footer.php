@@ -97,7 +97,8 @@
               // alert(userchat);
               jQuery.ajax({
               type: "POST",
-              url: "<?php echo base_url(); ?>" + "index.php/feed/post_chat_api/",
+//              url: "<?php echo base_url(); ?>" + "index.php/feed/post_chat_api/",
+              url: "<?php echo base_url(); ?>" + "index.php/feed/post_chat_random/",
               dataType: 'json',
               data: {chatboard: userchat},
               success: function(res) {

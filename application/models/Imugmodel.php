@@ -52,10 +52,6 @@ class Imugmodel extends CI_Model {
 
     public function post_chat($pcuserid,$pctextchat){
 
-
-
-
-
             $data = array(
               'pc_id' =>"" ,
               'pc_user_id' =>$pcuserid ,
@@ -79,10 +75,14 @@ class Imugmodel extends CI_Model {
             $this->db->from('imug_personal_chat');
             $this->db->join('imug_users', 'imug_personal_chat.pc_user_id = imug_users.users_id');
 						$this->db->order_by("imug_personal_chat.pc_time", "desc");
-						$this->db->limit(5);
+						//$this->db->limit(5);
             $q = $this->db->get();
             return $q->result();
     }
+
+		public function insert_posting($data=array()){
+						$this->db->insert('posting',$data);
+		}
 
 
 
