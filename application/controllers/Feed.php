@@ -164,6 +164,14 @@ class Feed extends CI_Controller {
 
 
 		}
+		public function get_java_all_chat(){
+
+						$q['data']= $this->Imugmodel->get_chat_communication();
+
+						echo json_encode($q);
+
+
+		}
 
 
 	 //================
